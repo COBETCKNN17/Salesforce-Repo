@@ -13,8 +13,8 @@ trigger accountOpportunitiesUpdateTrigger on Account (after update) {
 
     for(opportunity opp: childOpportunities){
       // Update_Counter__c is a Number field on the Opportunity
-      // This loop will increment Update_Counter__c each time the Account is edited and saved 
-      // Update_Counter is null by default. The logic initializes the Update_Counter__c to store 1 
+      // Update_Counter is null by default. The logic initializes the Update_Counter__c to store 1 if it is blank. 
+      // If Update_Counter is not blank, Update_Counter__c increments each time the Account is edited and saved 
         if(opp.Update_Counter__c == null) {
           opp.Update_Counter__c = 1;  
         } else {
